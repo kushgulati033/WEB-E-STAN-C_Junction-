@@ -11,7 +11,7 @@
                 Courses
             </h2>
             <p class="text-gray-300 mb-8">
-                PW Skills is your partner in effective upskilling. Get more value for time 
+                C-Junction is your partner in effective upskilling. Get more value for time 
                 and resources you invest, with job-ready courses powered by high-technology, 
                 accessible for everyone!
             </p>

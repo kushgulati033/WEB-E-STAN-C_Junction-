@@ -41,8 +41,11 @@ $recommendedCourses = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Focotech Learning Platform</title>
+    <title>C-Junction</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Creepster&family=Dancing+Script:wght@400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Wet+Paint&display=swap');
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -54,7 +57,7 @@ $recommendedCourses = [
                     <div class="text-green-500 mr-2">
                         <i class="fas fa-cube text-2xl"></i>
                     </div>
-                    <h1 class="text-xl font-bold text-white">Focotech</h1>
+                    <h1 class="text-xl font-bold text-white font-['Pacifico'] tracking-wide">C-Junc<sup>n</sup></h1>
                 </div>
             </div>
             
@@ -160,6 +163,33 @@ $recommendedCourses = [
                         <?php endforeach; ?>
                     </div>
                 <?php endif; ?>
+            </div>
+
+            <!-- Add this before the Recommended Courses Section -->
+            <div id="course-content-section" class="mb-12 hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold">Course Content</h2>
+                    <button id="close-course-content" class="text-green-500 hover:text-green-400">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold" id="current-course-title"></h3>
+                        <div class="text-gray-400">
+                            Progress: <span id="progress-percentage">0</span>%
+                        </div>
+                    </div>
+                    
+                    <div class="w-full h-2 bg-gray-700 rounded-full mb-6">
+                        <div id="progress-bar" class="h-2 bg-green-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div id="course-content-container"></div>
+                    </div>
+                </div>
             </div>
             
             <!-- Recommended Courses Section -->

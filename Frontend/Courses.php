@@ -16,7 +16,12 @@ $courses = [
         'image' => 'https://cdn.pixabay.com/photo/2017/10/29/14/49/data-2899903_640.jpg',
         'price' => '$59.99'
     ],
-    // Add more courses as needed
+    [
+        'title' => 'Data Structures and Algorithms',
+        'description' => 'Master DSA concepts with practical implementations in Java and Python',
+        'image' => 'https://cdn.pixabay.com/photo/2016/11/30/20/58/programming-1873854_1280.png',
+        'price' => '$54.99'
+    ]
 ];
 ?>
 

@@ -12,7 +12,9 @@ require_once '../Backend/session_handler.php';
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles/chat.css">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Creepster&family=Dancing+Script:wght@400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Wet+Paint&display=swap');
+</style>
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Navigation Bar -->
@@ -21,8 +23,14 @@ require_once '../Backend/session_handler.php';
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <!-- Logo -->
-                    <div class="flex-shrink-0 flex items-center">
-                        <img class="h-8 w-auto" src="logo.png" alt="Skills Logo">
+                    
+                    <div class="text-xl flex items-center ">
+                    <div class="text-green-500 mr-2">
+                        <i class="fas fa-cube text-2xl"></i>
+                    </div>
+                        <!-- <img class="h-8 w-auto" src="logo.png" alt="Skills Logo"> -->
+                        <h1 class="font-['Pacifico'] text-2xl tracking-wide">C-Junc<sup>n</sup></h1>
+
                     </div>
                     <!-- Navigation Links -->
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
