@@ -40,7 +40,7 @@
                         <a href="#" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white">
                             IIT & IIM Online Programs
                         </a>
-                        <a href="#" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white">
+                        <a href="Mylearning.php" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white">
                             My Learning
                         </a>
                     </div>
