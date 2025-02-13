@@ -2,9 +2,115 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Skill Assessment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl">
+        <h1 class="text-2xl font-bold text-center mb-4">AI Skill Assessment</h1>
+        <div>
+            <label for="topic" class="font-semibold">Enter a Topic to Start:</label>
+            <input type="text" id="topic" placeholder="e.g., Python" class="w-full p-2 border rounded mt-2">
+            <button onclick="generateQuestions()" class="w-full mt-4 bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Generate Questions</button>
+        </div>
+        
+        <div id="questionSection" class="hidden mt-6">
+            <h3 class="text-lg font-semibold text-center">Answer the following questions:</h3>
+            <div id="questionList" class="space-y-4 mt-4"></div>
+            <button onclick="submitAnswers()" class="w-full mt-4 bg-green-500 text-white py-2 rounded hover:bg-green-600">Submit Answers</button>
+        </div>
+        
+        <div id="resultSection" class="hidden mt-6">
+            <h3 class="text-lg font-semibold text-center">Assessment:</h3>
+            <div id="evaluationResult" class="bg-gray-100 p-4 rounded shadow-md mt-2"></div>
+            <button onclick="getResources()" class="w-full mt-4 bg-purple-500 text-white py-2 rounded hover:bg-purple-600">Get Learning Resources</button>
+        </div>
+        
+        <div id="resourceSection" class="hidden mt-6">
+            <h3 class="text-lg font-semibold text-center">Recommended Learning Resources:</h3>
+            <div id="resourceResult" class="bg-gray-100 p-4 rounded shadow-md mt-2"></div>
+        </div>
+        
+        <div id="errorMessage" class="text-red-500 text-center mt-4"></div>
+    </div>
 
+    <script>
+        const baseUrl = "http://127.0.0.1:5000";
+        let skillLevel = "";
+
+        function generateQuestions() {
+            const topic = document.getElementById('topic').value.trim();
+            if (!topic) {
+                document.getElementById('errorMessage').textContent = "Please enter a topic.";
+                return;
+            }
+            document.getElementById('errorMessage').textContent = "";
+            fetch(`${baseUrl}/assess`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ topic })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.questions) {
+                    document.getElementById('questionSection').classList.remove('hidden');
+                    const questionList = document.getElementById('questionList');
+                    questionList.innerHTML = '';
+                    data.questions.forEach((question, index) => {
+                        questionList.innerHTML += `
+                            <div class='bg-gray-100 p-4 rounded shadow-md'>
+                                <label class='font-semibold'>Question ${index + 1}:</label>
+                                <p class='mt-1'>${question}</p>
+                                <textarea id='answer${index}' rows='3' class='w-full p-2 border rounded mt-2' placeholder='Your answer here...'></textarea>
+                            </div>`;
+                    });
+                }
+            })
+            .catch(() => document.getElementById('errorMessage').textContent = "Error generating questions.");
+        }
+
+        function submitAnswers() {
+            const topic = document.getElementById('topic').value.trim();
+            const answers = Array.from(document.querySelectorAll('textarea')).map(t => t.value.trim());
+            if (answers.some(ans => ans === "")) {
+                document.getElementById('errorMessage').textContent = "Please provide answers to all questions.";
+                return;
+            }
+            fetch(`${baseUrl}/evaluate`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ topic, responses: answers })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.evaluation) {
+                    document.getElementById('resultSection').classList.remove('hidden');
+                    document.getElementById('evaluationResult').innerHTML = `<strong>Evaluation:</strong><pre>${data.evaluation}</pre>`;
+                    skillLevel = data.skill_level;
+                }
+            })
+            .catch(() => document.getElementById('errorMessage').textContent = "Error evaluating answers.");
+        }
+
+        function getResources() {
+            const topic = document.getElementById('topic').value.trim();
+            if (!skillLevel) {
+                document.getElementById('errorMessage').textContent = "Please complete the assessment first.";
+                return;
+            }
+            fetch(`${baseUrl}/resources`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ skill: topic, skill_level: skillLevel })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('resourceSection').classList.remove('hidden');
+                document.getElementById('resourceResult').innerHTML = `<strong>Resources:</strong><pre>${data.resources}</pre>`;
+            })
+            .catch(() => document.getElementById('errorMessage').textContent = "Error fetching resources.");
+        }
+    </script>
 </body>
 </html>
