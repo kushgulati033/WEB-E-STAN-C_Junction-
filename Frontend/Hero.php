@@ -27,10 +27,10 @@
                 </div>
                 <!-- Floating Images -->
                 <div class="absolute top-0 right-0 -mt-8 -mr-8">
-                    <img src="java.png" alt="Java" class="w-16 h-16">
+                    <img src="Resources/hignebst8rd41.webp" alt="Java" class="w-16 h-16">
                 </div>
                 <div class="absolute bottom-0 left-0 -mb-8 -ml-8">
-                    <img src="python.png" alt="Python" class="w-16 h-16">
+                    <img src="./Resources/hignebst8rd41.webp" alt="Python" class="w-16 h-16">
                 </div>
                 <div class="absolute top-1/2 right-0 transform translate-x-1/2">
                     <img src="" alt="Web" class="w-16 h-16">
