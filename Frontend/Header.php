@@ -10,9 +10,9 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-900 text-white">
     <!-- Navigation Bar -->
-    <nav class="bg-white shadow-sm">
+    <nav class="bg-gray-800 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex">
@@ -22,17 +22,26 @@
                     </div>
                     <!-- Navigation Links -->
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
-                        <div class="flex">
-                            <a href="#" class="inline-flex items-center px-1 pt-1 text-gray-900">
+                        <div class="relative">
+                            <button id="courses-button" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white focus:outline-none mt-2">
                                 <span>Courses</span>
                                 <i class="fas fa-chevron-down ml-2 text-xs"></i>
-                            </a>
+                            </button>
+                            <div id="courses-dropdown" class="absolute hidden mt-2 w-48 bg-gray-800 rounded-md shadow-lg z-10">
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">Data Science</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">Web Development</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">Python</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">C</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">C++</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">Machine Learning</a>
+                                <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">AI</a>
+                            </div>
                         </div>
-                        <a href="#" class="inline-flex items-center px-1 pt-1 text-gray-900">
+                        <a href="#" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white">
                             IIT & IIM Online Programs
                         </a>
-                        <a href="#" class="inline-flex items-center px-1 pt-1 text-gray-900">
-                            Masterclass
+                        <a href="#" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white">
+                            My Learning
                         </a>
                     </div>
                 </div>
@@ -49,7 +58,7 @@
                         </div>
                     </div>
                     <div class="ml-4">
-                        <a href="#" class="inline-flex items-center px-4 py-2 border border-red-500 text-red-500 rounded-lg hover:bg-red-500 hover:text-white transition-colors">
+                        <a href="Login.php" class="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-white transition-colors">
                             Login / Register
                         </a>
                     </div>
@@ -57,5 +66,12 @@
             </div>
         </div>
     </nav>
+
+    <script>
+        document.getElementById('courses-button').addEventListener('click', function() {
+            var dropdown = document.getElementById('courses-dropdown');
+            dropdown.classList.toggle('hidden');
+        });
+    </script>
 </body>
 </html>
