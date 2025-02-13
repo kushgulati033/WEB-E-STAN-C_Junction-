@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./output.css">
+    <!-- Botpress Webchat Scripts -->
+   
 </head>
 <body>
     <?php
@@ -13,7 +15,5 @@
     include("Hero.php")?>
     <?php
     include("Courses.php")?>
-    
-
 </body>
 </html>

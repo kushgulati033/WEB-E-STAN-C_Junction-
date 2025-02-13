@@ -1,32 +1,19 @@
 <?php
-// Mock data for the dashboard
-$user = [
-    'name' => 'Brooklyn Simmons',
-    'role' => 'UI/UX Designer & Developer',
-    'points' => 876,
-    'avatar' => 'https://example.com/avatar.jpg',
-    'stats' => [
-        'streak' => 54,
-        'goals' => 6,
-        'place' => 2
-    ]
-];
+require_once '../Backend/session_handler.php';
 
-$inProgressCourses = [
-    [
-        'title' => 'Advance UI/UX Design',
-        'category' => 'DESIGN',
-        'progress' => '18/40',
-        'timeLeft' => '2 hours left'
-    ],
-    [
-        'title' => 'Basic Web Development',
-        'category' => 'DEVELOPMENT',
-        'progress' => '18/40',
-        'timeLeft' => '2 hours left'
-    ]
-];
+// Redirect if not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: Login.php');
+    exit();
+}
 
+// Use session data
+$user = $_SESSION['user'];
+
+// Get user's in-progress courses from session, or empty array if none exist
+$inProgressCourses = isset($_SESSION['user']['courses']) ? $_SESSION['user']['courses'] : [];
+
+// Recommended courses remain the same as these are available to all users
 $recommendedCourses = [
     [
         'title' => 'Webflow Tutorial: Build Your First Portfolio Website In a Minute',
@@ -125,59 +112,54 @@ $recommendedCourses = [
                     </li>
                 </ul>
             </div>
-            
-            <div class="mt-12 mx-6">
-                <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-lg p-6 text-white relative overflow-hidden">
-                    <div class="absolute right-0 bottom-0">
-                        <i class="fas fa-flag text-green-300 text-7xl opacity-50"></i>
-                    </div>
-                    <h3 class="text-lg font-bold mb-2">Get Premium Now!</h3>
-                    <p class="text-sm mb-4">Reach our special feature by subscribe our plan.</p>
-                    <button class="bg-white text-green-500 px-4 py-2 rounded-md text-sm">
-                        Upgrade Now <i class="fas fa-arrow-up ml-1"></i>
-                    </button>
-                </div>
-            </div>
         </div>
         
         <!-- Main Content -->
         <div class="flex-1 p-8">
             <div class="flex justify-between items-center mb-8">
-                <h2 class="text-2xl font-bold">Dashboard</h2>
+                <a href="Home.php">
+                <h2 class="text-2xl font-bold">Home</h2>
+                </a>
                 <div class="relative">
                     <input type="text" placeholder="Search here..." class="pl-10 pr-4 py-2 rounded-md border border-gray-700 bg-gray-800 text-gray-300 w-64">
                     <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
                 </div>
+                <button id="open-details-button" class="ml-4 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
+                    Show Details
+                </button>
             </div>
             
             <!-- Continue Learning Section -->
             <div class="mb-12">
                 <h2 class="text-2xl font-bold mb-6">Continue Learning</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <?php foreach ($inProgressCourses as $course): ?>
-                    <div class="bg-gray-800 p-6 rounded-lg shadow">
-                        <div class="flex items-start">
-                            <div class="<?= $course['category'] === 'DESIGN' ? 'bg-green-500 text-white' : 'bg-blue-500 text-white' ?> p-3 rounded-md mr-4">
-                                <i class="<?= $course['category'] === 'DESIGN' ? 'fas fa-paint-brush' : 'fas fa-code' ?> text-xl"></i>
-                            </div>
-                            <div class="flex-1">
-                                <div class="text-sm text-gray-400 mb-1"><?= $course['category'] ?></div>
-                                <h3 class="font-bold text-lg mb-3 text-white"><?= $course['title'] ?></h3>
-                                <div class="relative w-full h-2 bg-gray-700 rounded-full mb-3">
-                                    <div class="absolute left-0 top-0 h-2 bg-green-500 rounded-full" style="width: 45%"></div>
-                                </div>
-                                <div class="flex justify-between text-sm">
-                                    <span class="text-gray-400"><i class="fas fa-book mr-1"></i> <?= $course['progress'] ?> Lessons</span>
-                                    <span class="text-gray-400"><i class="far fa-clock mr-1"></i> <?= $course['timeLeft'] ?></span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="mt-4 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition">
-                            Resume Course <i class="fas fa-arrow-right ml-2"></i>
-                        </button>
+                <?php if (empty($_SESSION['user']['courses'])): ?>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow text-center">
+                        <p class="text-gray-400">You haven't purchased any courses yet.</p>
+                        <a href="Courses.php" class="text-green-500 hover:text-green-400">Browse our courses</a>
                     </div>
-                    <?php endforeach; ?>
-                </div>
+                <?php else: ?>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <?php foreach ($_SESSION['user']['courses'] as $course): ?>
+                            <div class="bg-gray-800 p-6 rounded-lg shadow">
+                                <div class="flex items-start">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg mb-3 text-white"><?= htmlspecialchars($course['title']) ?></h3>
+                                        <div class="relative w-full h-2 bg-gray-700 rounded-full mb-3">
+                                            <div class="absolute left-0 top-0 h-2 bg-green-500 rounded-full" style="width: 0%"></div>
+                                        </div>
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray-400"><i class="fas fa-book mr-1"></i> <?= $course['progress'] ?> Lessons</span>
+                                            <span class="text-gray-400"><i class="far fa-clock mr-1"></i> <?= $course['timeLeft'] ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="mt-4 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition">
+                                    Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
             </div>
             
             <!-- Recommended Courses Section -->
@@ -217,9 +199,9 @@ $recommendedCourses = [
         </div>
         
         <!-- Right Sidebar - User Profile -->
-        <div class="w-80 bg-gray-800 p-6 shadow-md">
+        <div id="user-profile-sidebar" class="w-80 bg-gray-800 p-6 shadow-md">
             <div class="flex justify-end mb-4">
-                <button class="text-green-500 text-sm">
+                <button id="close-details-button" class="text-green-500 text-sm">
                     <i class="fas fa-times mr-1"></i> Close Details
                 </button>
             </div>
@@ -348,5 +330,33 @@ $recommendedCourses = [
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('close-details-button').addEventListener('click', function() {
+            document.getElementById('user-profile-sidebar').style.display = 'none';
+        });
+
+        document.getElementById('open-details-button').addEventListener('click', function() {
+            document.getElementById('user-profile-sidebar').style.display = 'block';
+        });
+
+        document.getElementById('show-details-btn').addEventListener('click', function() {
+            const sidebar = document.getElementById('user-profile-sidebar');
+            const showBtn = document.getElementById('show-details-btn');
+            
+            if (sidebar.style.display === 'none') {
+                sidebar.style.display = 'block';
+                showBtn.style.display = 'none';
+            }
+        });
+
+        document.getElementById('close-details-button').addEventListener('click', function() {
+            const sidebar = document.getElementById('user-profile-sidebar');
+            const showBtn = document.getElementById('show-details-btn');
+            
+            sidebar.style.display = 'none';
+            showBtn.style.display = 'inline-flex';
+        });
+    </script>
 </body>
 </html>

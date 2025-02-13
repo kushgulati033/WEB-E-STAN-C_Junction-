@@ -23,17 +23,17 @@
         <div class="relative">
             <!-- Main Developer Image -->
             <div class="rounded-lg overflow-hidden shadow-xl mb-4">
-                <img src="" alt="Developer" class="w-full">
+                <img src="https://cdn.pixabay.com/photo/2024/05/15/20/57/developer-8764527_640.jpg" alt="Developer" class="w-full">
             </div>
             <!-- Floating Images -->
-            <div class="absolute top-0 right-0 -mt-8 -mr-8">
-                <img src="Resources/java.webp" alt="Java" class="w-16 h-16">
+            <div class="absolute top-0 right-0 -mt-8 -mr-8 rounded-full overflow-hidden">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9I-1OufFLEMTcz7aZAs_RfaRDJc5l6NrXZw&s" alt="Java" class="w-16 h-16">
             </div>
-            <div class="absolute bottom-0 left-0 -mb-8 -ml-8">
-                <img src="Resources/python.webp" alt="Python" class="w-16 h-16">
+            <div class="absolute bottom-0 left-0 -mb-8 -ml-8 rounded-full overflow-hidden">
+                <img src="https://i0.wp.com/junilearning.com/wp-content/uploads/2020/06/python-programming-language.webp?fit=1920%2C1920&ssl=1" alt="Python" class="w-16 h-16">
             </div>
-            <div class="absolute top-1/2 right-0 transform translate-x-1/2">
-                <img src="Resources/web.webp" alt="Web" class="w-16 h-16">
+            <div class="absolute top-1/2 right-0 transform translate-x-1/2 rounded-full overflow-hidden">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJkK4FMdmkKfwttpCrjBM-489ZvzURCqItjBkg9gAo0UaN8x69SsOwJmYvWovCf35k5dQ&usqp=CAU" alt="Web" class="w-16 h-16">
             </div>
         </div>
     </div>

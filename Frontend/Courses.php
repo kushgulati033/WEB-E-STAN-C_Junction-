@@ -1,43 +1,58 @@
 <?php
-    // PHP for dynamic course data
-    $courses = [
-        [
-            'title' => 'Web Development',
-            'description' => 'Learn full-stack web development',
-            'image' => 'web-dev.jpg'
-        ],
-        [
-            'title' => 'Data Science',
-            'description' => 'Master data analysis and ML',
-            'image' => 'data-science.jpg'
-        ],
-        // Add more courses as needed
-    ];
-    ?>
+require_once '../Backend/session_handler.php';
+// Remove the session_start() call since it's handled by session_handler.php
 
-    <!-- Courses Section -->
-    <div class="bg-gray-900 py-16 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center mb-12">Popular Courses</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <?php foreach ($courses as $course): ?>
-                <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                    <img src="<?php echo htmlspecialchars($course['image']); ?>" 
-                         alt="<?php echo htmlspecialchars($course['title']); ?>" 
-                         class="w-full h-48 object-cover">
-                    <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">
-                            <?php echo htmlspecialchars($course['title']); ?>
-                        </h3>
-                        <p class="text-gray-300">
-                            <?php echo htmlspecialchars($course['description']); ?>
-                        </p>
-                        <a href="#" class="mt-4 inline-block text-green-400 hover:text-green-500">
-                            Learn More →
-                        </a>
+// PHP for dynamic course data
+$courses = [
+    [
+        'title' => 'Web Development',
+        'description' => 'Learn full-stack web development',
+        'image' => 'https://media.istockphoto.com/id/1201166649/photo/office-responsive-devices-web-design-website.jpg?s=2048x2048&w=is&k=20&c=7OQhRq_0EWxf4EQL66TQ6qRiPtpkmJKl33wM4PPnNM8=',
+        'price' => '$49.99'
+    ],
+    [
+        'title' => 'Data Science',
+        'description' => 'Master data analysis and ML',
+        'image' => 'https://cdn.pixabay.com/photo/2017/10/29/14/49/data-2899903_640.jpg',
+        'price' => '$59.99'
+    ],
+    // Add more courses as needed
+];
+?>
+
+<!-- Courses Section -->
+<div class="bg-gray-900 py-16 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-center mb-12">Popular Courses</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <?php foreach ($courses as $course): ?>
+            <div class="bg-gray-800 rounded-lg shadow-md overflow-hidden">
+                <img src="<?php echo htmlspecialchars($course['image']); ?>" 
+                     alt="<?php echo htmlspecialchars($course['title']); ?>" 
+                     class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <h3 class="text-xl font-semibold mb-2">
+                        <?php echo htmlspecialchars($course['title']); ?>
+                    </h3>
+                    <p class="text-gray-300 mb-4">
+                        <?php echo htmlspecialchars($course['description']); ?>
+                    </p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-green-400 font-bold">
+                            <?php echo htmlspecialchars($course['price']); ?>
+                        </span>
+                        <form action="../Backend/purchase_course.php" method="POST">
+                            <input type="hidden" name="course_title" value="<?php echo htmlspecialchars($course['title']); ?>">
+                            <input type="hidden" name="course_description" value="<?php echo htmlspecialchars($course['description']); ?>">
+                            <input type="hidden" name="course_image" value="<?php echo htmlspecialchars($course['image']); ?>">
+                            <button type="submit" class="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+                                Buy Now
+                            </button>
+                        </form>
                     </div>
                 </div>
-                <?php endforeach; ?>
             </div>
+            <?php endforeach; ?>
         </div>
     </div>
+</div>
