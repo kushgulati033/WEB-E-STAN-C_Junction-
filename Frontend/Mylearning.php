@@ -77,21 +77,21 @@ $recommendedCourses = [
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
-                            <i class="fas fa-trophy mr-3"></i>
-                            <span>Leaderboard</span>
+                        <a href="todolist.php" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
+                            <i class="fas fa-list mr-3"></i>
+                            <span>Todo List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="calculator.php" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
+                            <i class="fas fa-calculator mr-3"></i>
+                            <span>Calculator</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
                             <i class="fas fa-chart-line mr-3"></i>
                             <span>Skill Graph</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
-                            <i class="fas fa-graduation-cap mr-3"></i>
-                            <span>Courses</span>
                         </a>
                     </li>
                     <li>
@@ -107,12 +107,6 @@ $recommendedCourses = [
                             <span class="bg-red-500 text-white text-xs rounded-full px-2 ml-auto">4</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
-                            <i class="fas fa-cog mr-3"></i>
-                            <span>Settings</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -121,7 +115,7 @@ $recommendedCourses = [
         <div class="flex-1 p-8">
             <div class="flex justify-between items-center mb-8">
                 <a href="Home.php">
-                <h2 class="text-2xl font-bold">Home</h2>
+                <h2 class="p-2 bg-green-500 border-black rounded-lg">Return to Home</h2>
                 </a>
                 <div class="relative">
                     <input type="text" placeholder="Search here..." class="pl-10 pr-4 py-2 rounded-md border border-gray-700 bg-gray-800 text-gray-300 w-64">
@@ -239,7 +233,7 @@ $recommendedCourses = [
             <div class="flex flex-col items-center mb-6">
                 <div class="relative">
                     <img src="<?= $user['avatar'] ?>" alt="<?= $user['name'] ?>" class="w-24 h-24 rounded-full object-cover border-4 border-gray-900 shadow-lg">
-                    <div class="absolute -bottom-2 -right-2 bg-blue-500 text-white rounded-full p-1">
+                    <div class="absolute -bottom-2 -right-2 text-white rounded-full p-1">
                         <i class="fas fa-badge-check"></i>
                     </div>
                 </div>
@@ -300,13 +294,13 @@ $recommendedCourses = [
                 <div class="grid grid-cols-2 gap-6">
                     <div class="bg-gray-700 rounded-lg p-4 text-center">
                         <div class="text-green-500 text-3xl mb-1"><i class="fas fa-book"></i></div>
-                        <div class="font-bold text-xl mb-1 text-white">3</div>
+                        <div class="font-bold text-xl mb-1 text-white">0</div>
                         <div class="text-sm text-gray-400">Courses</div>
                         <div class="text-xs text-gray-500">In Progress</div>
                     </div>
                     <div class="bg-gray-700 rounded-lg p-4 text-center">
                         <div class="text-green-500 text-3xl mb-1"><i class="fas fa-check-circle"></i></div>
-                        <div class="font-bold text-xl mb-1 text-white">17</div>
+                        <div class="font-bold text-xl mb-1 text-white">0</div>
                         <div class="text-sm text-gray-400">Courses</div>
                         <div class="text-xs text-gray-500">Completed</div>
                     </div>
