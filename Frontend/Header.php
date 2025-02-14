@@ -35,7 +35,7 @@ require_once '../Backend/session_handler.php';
                     <!-- Navigation Links -->
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                         <div class="relative">
-                            <button id="courses-button" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white focus:outline-none mt-2">
+                            <button id="courses-button" class=" inline-flex items-center px-1 py-5 text-gray-300 hover:text-white focus:outline-none">
                                 <span>Courses</span>
                                 <i class="fas fa-chevron-down ml-2 text-xs"></i>
                             </button>
@@ -96,10 +96,10 @@ require_once '../Backend/session_handler.php';
                 dropdown.classList.toggle('hidden');
             });
 
-            // AI Learn button click event
-            document.getElementById('ai-learn-button').addEventListener('click', function() {
-                alert('Learn with AI button clicked!');
-            });
+            // // AI Learn button click event
+            // document.getElementById('ai-learn-button').addEventListener('click', function() {
+            //     alert('Learn with AI button clicked!');
+            // });
         });
     </script>
 </body>
