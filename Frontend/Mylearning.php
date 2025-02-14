@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 // Mock data for the dashboard
 $user = [
     'name' => 'Brooklyn Simmons',
@@ -27,6 +28,23 @@ $inProgressCourses = [
     ]
 ];
 
+=======
+require_once '../Backend/session_handler.php';
+
+// Redirect if not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: Login.php');
+    exit();
+}
+
+// Use session data
+$user = $_SESSION['user'];
+
+// Get user's in-progress courses from session, or empty array if none exist
+$inProgressCourses = isset($_SESSION['user']['courses']) ? $_SESSION['user']['courses'] : [];
+
+// Recommended courses remain the same as these are available to all users
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
 $recommendedCourses = [
     [
         'title' => 'Webflow Tutorial: Build Your First Portfolio Website In a Minute',
@@ -54,8 +72,16 @@ $recommendedCourses = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Focotech Learning Platform</title>
     <script src="https://cdn.tailwindcss.com"></script>
+=======
+    <title>C-Junction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Creepster&family=Dancing+Script:wght@400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Wet+Paint&display=swap');
+    </style>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 </head>
 <body class="bg-gray-900 text-white font-sans">
@@ -67,7 +93,11 @@ $recommendedCourses = [
                     <div class="text-green-500 mr-2">
                         <i class="fas fa-cube text-2xl"></i>
                     </div>
+<<<<<<< HEAD
                     <h1 class="text-xl font-bold text-white">Focotech</h1>
+=======
+                    <h1 class="text-xl font-bold text-white font-['Pacifico'] tracking-wide">C-Junc<sup>n</sup></h1>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                 </div>
             </div>
             
@@ -87,9 +117,21 @@ $recommendedCourses = [
                         </a>
                     </li>
                     <li>
+<<<<<<< HEAD
                         <a href="#" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
                             <i class="fas fa-trophy mr-3"></i>
                             <span>Leaderboard</span>
+=======
+                        <a href="todolist.php" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
+                            <i class="fas fa-list mr-3"></i>
+                            <span>Todo List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="calculator.php" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
+                            <i class="fas fa-calculator mr-3"></i>
+                            <span>Calculator</span>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                         </a>
                     </li>
                     <li>
@@ -100,12 +142,15 @@ $recommendedCourses = [
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
+<<<<<<< HEAD
                             <i class="fas fa-graduation-cap mr-3"></i>
                             <span>Courses</span>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
+=======
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                             <i class="fas fa-certificate mr-3"></i>
                             <span>Certificates</span>
                         </a>
@@ -117,6 +162,7 @@ $recommendedCourses = [
                             <span class="bg-red-500 text-white text-xs rounded-full px-2 ml-auto">4</span>
                         </a>
                     </li>
+<<<<<<< HEAD
                     <li>
                         <a href="#" class="flex items-center p-3 text-gray-300 hover:bg-gray-700 rounded-md">
                             <i class="fas fa-cog mr-3"></i>
@@ -138,21 +184,38 @@ $recommendedCourses = [
                     </button>
                 </div>
             </div>
+=======
+                </ul>
+            </div>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
         </div>
         
         <!-- Main Content -->
         <div class="flex-1 p-8">
             <div class="flex justify-between items-center mb-8">
+<<<<<<< HEAD
                 <h2 class="text-2xl font-bold">Dashboard</h2>
+=======
+                <a href="Home.php">
+                <h2 class="p-2 bg-green-500 border-black rounded-lg">Return to Home</h2>
+                </a>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                 <div class="relative">
                     <input type="text" placeholder="Search here..." class="pl-10 pr-4 py-2 rounded-md border border-gray-700 bg-gray-800 text-gray-300 w-64">
                     <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
                 </div>
+<<<<<<< HEAD
+=======
+                <button id="open-details-button" class="ml-4 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition">
+                    Show Details
+                </button>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
             </div>
             
             <!-- Continue Learning Section -->
             <div class="mb-12">
                 <h2 class="text-2xl font-bold mb-6">Continue Learning</h2>
+<<<<<<< HEAD
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <?php foreach ($inProgressCourses as $course): ?>
                     <div class="bg-gray-800 p-6 rounded-lg shadow">
@@ -177,6 +240,62 @@ $recommendedCourses = [
                         </button>
                     </div>
                     <?php endforeach; ?>
+=======
+                <?php if (empty($_SESSION['user']['courses'])): ?>
+                    <div class="bg-gray-800 p-6 rounded-lg shadow text-center">
+                        <p class="text-gray-400">You haven't purchased any courses yet.</p>
+                        <a href="Courses.php" class="text-green-500 hover:text-green-400">Browse our courses</a>
+                    </div>
+                <?php else: ?>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <?php foreach ($_SESSION['user']['courses'] as $course): ?>
+                            <div class="bg-gray-800 p-6 rounded-lg shadow">
+                                <div class="flex items-start">
+                                    <div class="flex-1">
+                                        <h3 class="font-bold text-lg mb-3 text-white"><?= htmlspecialchars($course['title']) ?></h3>
+                                        <div class="relative w-full h-2 bg-gray-700 rounded-full mb-3">
+                                            <div class="absolute left-0 top-0 h-2 bg-green-500 rounded-full" style="width: 0%"></div>
+                                        </div>
+                                        <div class="flex justify-between text-sm">
+                                            <span class="text-gray-400"><i class="fas fa-book mr-1"></i> <?= $course['progress'] ?> Lessons</span>
+                                            <span class="text-gray-400"><i class="far fa-clock mr-1"></i> <?= $course['timeLeft'] ?></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="mt-4 w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition">
+                                    Start Learning <i class="fas fa-arrow-right ml-2"></i>
+                                </button>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+
+            <!-- Add this before the Recommended Courses Section -->
+            <div id="course-content-section" class="mb-12 hidden">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-2xl font-bold">Course Content</h2>
+                    <button id="close-course-content" class="text-green-500 hover:text-green-400">
+                        <i class="fas fa-times"></i> Close
+                    </button>
+                </div>
+                
+                <div class="bg-gray-800 rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold" id="current-course-title"></h3>
+                        <div class="text-gray-400">
+                            Progress: <span id="progress-percentage">0</span>%
+                        </div>
+                    </div>
+                    
+                    <div class="w-full h-2 bg-gray-700 rounded-full mb-6">
+                        <div id="progress-bar" class="h-2 bg-green-500 rounded-full transition-all duration-300" style="width: 0%"></div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6">
+                        <div id="course-content-container"></div>
+                    </div>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                 </div>
             </div>
             
@@ -217,9 +336,15 @@ $recommendedCourses = [
         </div>
         
         <!-- Right Sidebar - User Profile -->
+<<<<<<< HEAD
         <div class="w-80 bg-gray-800 p-6 shadow-md">
             <div class="flex justify-end mb-4">
                 <button class="text-green-500 text-sm">
+=======
+        <div id="user-profile-sidebar" class="w-80 bg-gray-800 p-6 shadow-md">
+            <div class="flex justify-end mb-4">
+                <button id="close-details-button" class="text-green-500 text-sm">
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                     <i class="fas fa-times mr-1"></i> Close Details
                 </button>
             </div>
@@ -227,7 +352,11 @@ $recommendedCourses = [
             <div class="flex flex-col items-center mb-6">
                 <div class="relative">
                     <img src="<?= $user['avatar'] ?>" alt="<?= $user['name'] ?>" class="w-24 h-24 rounded-full object-cover border-4 border-gray-900 shadow-lg">
+<<<<<<< HEAD
                     <div class="absolute -bottom-2 -right-2 bg-blue-500 text-white rounded-full p-1">
+=======
+                    <div class="absolute -bottom-2 -right-2 text-white rounded-full p-1">
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                         <i class="fas fa-badge-check"></i>
                     </div>
                 </div>
@@ -288,13 +417,21 @@ $recommendedCourses = [
                 <div class="grid grid-cols-2 gap-6">
                     <div class="bg-gray-700 rounded-lg p-4 text-center">
                         <div class="text-green-500 text-3xl mb-1"><i class="fas fa-book"></i></div>
+<<<<<<< HEAD
                         <div class="font-bold text-xl mb-1 text-white">3</div>
+=======
+                        <div class="font-bold text-xl mb-1 text-white">0</div>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                         <div class="text-sm text-gray-400">Courses</div>
                         <div class="text-xs text-gray-500">In Progress</div>
                     </div>
                     <div class="bg-gray-700 rounded-lg p-4 text-center">
                         <div class="text-green-500 text-3xl mb-1"><i class="fas fa-check-circle"></i></div>
+<<<<<<< HEAD
                         <div class="font-bold text-xl mb-1 text-white">17</div>
+=======
+                        <div class="font-bold text-xl mb-1 text-white">0</div>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                         <div class="text-sm text-gray-400">Courses</div>
                         <div class="text-xs text-gray-500">Completed</div>
                     </div>
@@ -348,5 +485,36 @@ $recommendedCourses = [
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+
+    <script>
+        document.getElementById('close-details-button').addEventListener('click', function() {
+            document.getElementById('user-profile-sidebar').style.display = 'none';
+        });
+
+        document.getElementById('open-details-button').addEventListener('click', function() {
+            document.getElementById('user-profile-sidebar').style.display = 'block';
+        });
+
+        document.getElementById('show-details-btn').addEventListener('click', function() {
+            const sidebar = document.getElementById('user-profile-sidebar');
+            const showBtn = document.getElementById('show-details-btn');
+            
+            if (sidebar.style.display === 'none') {
+                sidebar.style.display = 'block';
+                showBtn.style.display = 'none';
+            }
+        });
+
+        document.getElementById('close-details-button').addEventListener('click', function() {
+            const sidebar = document.getElementById('user-profile-sidebar');
+            const showBtn = document.getElementById('show-details-btn');
+            
+            sidebar.style.display = 'none';
+            showBtn.style.display = 'inline-flex';
+        });
+    </script>
+>>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
 </body>
 </html>
