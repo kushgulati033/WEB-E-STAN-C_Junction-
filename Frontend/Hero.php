@@ -11,11 +11,7 @@
                 Courses
             </h2>
             <p class="text-gray-300 mb-8">
-<<<<<<< HEAD
-                PW Skills is your partner in effective upskilling. Get more value for time 
-=======
                 C-Junction is your partner in effective upskilling. Get more value for time 
->>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                 and resources you invest, with job-ready courses powered by high-technology, 
                 accessible for everyone!
             </p>
@@ -27,19 +23,6 @@
         <div class="relative">
             <!-- Main Developer Image -->
             <div class="rounded-lg overflow-hidden shadow-xl mb-4">
-<<<<<<< HEAD
-                <img src="" alt="Developer" class="w-full">
-            </div>
-            <!-- Floating Images -->
-            <div class="absolute top-0 right-0 -mt-8 -mr-8">
-                <img src="Resources/java.webp" alt="Java" class="w-16 h-16">
-            </div>
-            <div class="absolute bottom-0 left-0 -mb-8 -ml-8">
-                <img src="Resources/python.webp" alt="Python" class="w-16 h-16">
-            </div>
-            <div class="absolute top-1/2 right-0 transform translate-x-1/2">
-                <img src="Resources/web.webp" alt="Web" class="w-16 h-16">
-=======
                 <img src="https://cdn.pixabay.com/photo/2024/05/15/20/57/developer-8764527_640.jpg" alt="Developer" class="w-full">
             </div>
             <!-- Floating Images -->
@@ -51,7 +34,6 @@
             </div>
             <div class="absolute top-1/2 right-0 transform translate-x-1/2 rounded-full overflow-hidden">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJkK4FMdmkKfwttpCrjBM-489ZvzURCqItjBkg9gAo0UaN8x69SsOwJmYvWovCf35k5dQ&usqp=CAU" alt="Web" class="w-16 h-16">
->>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
             </div>
         </div>
     </div>

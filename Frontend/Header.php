@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-<!-- File: index.php -->
-=======
 <?php
 session_start();
 require_once '../Backend/session_handler.php';
 ?>
->>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +12,9 @@ require_once '../Backend/session_handler.php';
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<<<<<<< HEAD
-=======
     <style>
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Creepster&family=Dancing+Script:wght@400..700&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+Wet+Paint&display=swap');
 </style>
->>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
 </head>
 <body class="bg-gray-900 text-white">
     <!-- Navigation Bar -->
@@ -30,10 +23,6 @@ require_once '../Backend/session_handler.php';
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <!-- Logo -->
-<<<<<<< HEAD
-                    <div class="flex-shrink-0 flex items-center">
-                        <img class="h-8 w-auto" src="logo.png" alt="Skills Logo">
-=======
                     
                     <div class="text-xl flex items-center ">
                     <div class="text-green-500 mr-2">
@@ -42,16 +31,11 @@ require_once '../Backend/session_handler.php';
                         <!-- <img class="h-8 w-auto" src="logo.png" alt="Skills Logo"> -->
                         <h1 class="font-['Pacifico'] text-2xl tracking-wide">C-Junc<sup>n</sup></h1>
 
->>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                     </div>
                     <!-- Navigation Links -->
                     <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
                         <div class="relative">
-<<<<<<< HEAD
-                            <button id="courses-button" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white focus:outline-none mt-2">
-=======
                             <button id="courses-button" class=" inline-flex items-center px-1 py-5 text-gray-300 hover:text-white focus:outline-none">
->>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                                 <span>Courses</span>
                                 <i class="fas fa-chevron-down ml-2 text-xs"></i>
                             </button>
@@ -65,16 +49,10 @@ require_once '../Backend/session_handler.php';
                                 <a href="#" class="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white">AI</a>
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <a href="#" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white">
-                            IIT & IIM Online Programs
-                        </a>
-=======
                         <button id="ai-learn-button" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white focus:outline-none">
                             <span>Learn with AI</span>
                             <i class="fas fa-robot ml-2"></i>
                         </button>
->>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                         <a href="Mylearning.php" class="inline-flex items-center px-1 py-2 text-gray-300 hover:text-white">
                             My Learning
                         </a>
@@ -92,12 +70,6 @@ require_once '../Backend/session_handler.php';
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                    <div class="ml-4">
-                        <a href="Login.php" class="inline-flex items-center px-4 py-2 border border-green-500 text-green-500 rounded-lg hover:bg-green-500 hover:text-white transition-colors">
-                            Login / Register
-                        </a>
-=======
                     <div class="ml-4 flex items-center">
                         <?php if(isset($_SESSION['user'])): ?>
                             <span class="text-white mr-4"><?= $_SESSION['user']['name'] ?></span>
@@ -109,7 +81,6 @@ require_once '../Backend/session_handler.php';
                                 Login / Register
                             </a>
                         <?php endif; ?>
->>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
                     </div>
                 </div>
             </div>
@@ -117,11 +88,6 @@ require_once '../Backend/session_handler.php';
     </nav>
 
     <script>
-<<<<<<< HEAD
-        document.getElementById('courses-button').addEventListener('click', function() {
-            var dropdown = document.getElementById('courses-dropdown');
-            dropdown.classList.toggle('hidden');
-=======
         // Wait for DOM content to be loaded
         document.addEventListener('DOMContentLoaded', function() {
             // Courses dropdown toggle
@@ -134,7 +100,6 @@ require_once '../Backend/session_handler.php';
             // document.getElementById('ai-learn-button').addEventListener('click', function() {
             //     alert('Learn with AI button clicked!');
             // });
->>>>>>> 6b3030f9f3eafef10ba18029038c266e874d3eee
         });
     </script>
 </body>
